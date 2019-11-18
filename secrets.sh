@@ -386,7 +386,7 @@ helm_wrapper() {
     fi
 
     # cache options for the helm command in a file so we don't need to parse the help each time
-    local helm_version=$(${HELM_BIN} version --client --short)
+    local helm_version=$(${HELM_BIN} version)
     local cur_options_version="${helm_version}${cmd_version:+ ${cmd}: ${cmd_version}}"
     local optfile="$HELM_PLUGIN_DIR/helm.${cmd}${subcmd:+.$subcmd}.options" options_version='' options='' longoptions=''
     [[ -f $optfile ]] && . "$optfile"
